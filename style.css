@@ -43,7 +43,7 @@ header.site a.brand {
 
 header.site a.brand img { width: 44px; height: auto; }
 
-header.site nav a { margin-left: 16px; text-decoration: none; font-weight: 500; }
+header.site nav a { margin-left: 16px; text-decoration: none; font-weight: 500; white-space: nowrap; }
 
 .hero { text-align: center; padding: 24px 0 8px; }
 .hero img.studio { width: 200px; max-width: 60%; height: auto; }
@@ -62,6 +62,9 @@ header.site nav a { margin-left: 16px; text-decoration: none; font-weight: 500; 
 .game img.logo { width: 320px; max-width: 100%; height: auto; margin: 0 auto; }
 .game .friends { display: flex; justify-content: center; gap: 12px; }
 .game .friends img { width: 120px; height: auto; }
+a.game-link { color: var(--text); text-decoration: none; display: grid; transition: transform 0.15s, box-shadow 0.15s; }
+a.game-link:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(74, 44, 26, 0.12); }
+
 .badge {
   display: inline-block;
   background: var(--accent);
