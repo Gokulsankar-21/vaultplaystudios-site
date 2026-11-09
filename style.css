@@ -1,0 +1,96 @@
+:root {
+  --bg: #fef6ee;
+  --card: #ffffff;
+  --text: #4a2c1a;
+  --soft: #8a6a58;
+  --accent: #ff9a3c;
+  --accent-dark: #c4621a;
+  --line: #f1dfcd;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 "Fredoka", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+a { color: var(--accent-dark); }
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+header.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+header.site a.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+header.site a.brand img { width: 44px; height: auto; }
+
+header.site nav a { margin-left: 16px; text-decoration: none; font-weight: 500; }
+
+.hero { text-align: center; padding: 24px 0 8px; }
+.hero img.studio { width: 200px; max-width: 60%; height: auto; }
+.hero p { color: var(--soft); font-size: 19px; margin: 8px 0 0; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: 0 4px 16px rgba(74, 44, 26, 0.06);
+}
+
+.game { display: grid; grid-template-columns: 1fr; gap: 16px; text-align: center; }
+.game img.logo { width: 320px; max-width: 100%; height: auto; margin: 0 auto; }
+.game .friends { display: flex; justify-content: center; gap: 12px; }
+.game .friends img { width: 120px; height: auto; }
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-weight: 600;
+}
+
+.doc h1 { font-size: 30px; line-height: 1.25; margin: 8px 0 4px; }
+.doc h2 { font-size: 21px; margin: 28px 0 6px; }
+.doc .meta { color: var(--soft); margin: 0 0 8px; }
+.doc ul { padding-left: 22px; }
+.doc li { margin: 4px 0; }
+
+footer.site {
+  color: var(--soft);
+  font-size: 15px;
+  text-align: center;
+  padding: 24px 0 40px;
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+}
+
+footer.site a { margin: 0 8px; }
+
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .card { padding: 18px; border-radius: 18px; }
+  .doc h1 { font-size: 25px; }
+  header.site nav a { margin-left: 10px; }
+}
