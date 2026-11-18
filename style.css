@@ -6,6 +6,45 @@
   --accent: #ff9a3c;
   --accent-dark: #c4621a;
   --line: #f1dfcd;
+  --shadow: rgba(74, 44, 26, 0.06);
+  --shadow-hover: rgba(74, 44, 26, 0.12);
+  --logo-plate: transparent;
+  --logo-on: 0;
+  color-scheme: light;
+}
+
+/* Dark theme: follows the phone/computer setting ("System", the default) unless the reader
+   picks Dark or Light in the footer switch (theme.js sets data-theme). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1c1410;
+    --card: #2a1f19;
+    --text: #f7e9dd;
+    --soft: #c4ab98;
+    --accent: #ff9a3c;
+    --accent-dark: #ffb26b;
+    --line: #3e2f25;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+    --logo-plate: #fef6ee;
+    --logo-on: 1;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1c1410;
+  --card: #2a1f19;
+  --text: #f7e9dd;
+  --soft: #c4ab98;
+  --accent: #ff9a3c;
+  --accent-dark: #ffb26b;
+  --line: #3e2f25;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --logo-plate: #fef6ee;
+  --logo-on: 1;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -55,7 +94,7 @@ header.site nav a { margin-left: 16px; text-decoration: none; font-weight: 500; 
   border-radius: 24px;
   padding: 24px;
   margin: 24px 0;
-  box-shadow: 0 4px 16px rgba(74, 44, 26, 0.06);
+  box-shadow: 0 4px 16px var(--shadow);
 }
 
 .game { display: grid; grid-template-columns: 1fr; gap: 16px; text-align: center; }
@@ -63,7 +102,7 @@ header.site nav a { margin-left: 16px; text-decoration: none; font-weight: 500; 
 .game .friends { display: flex; justify-content: center; gap: 12px; }
 .game .friends img { width: 120px; height: auto; }
 a.game-link { color: var(--text); text-decoration: none; display: grid; transition: transform 0.15s, box-shadow 0.15s; }
-a.game-link:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(74, 44, 26, 0.12); }
+a.game-link:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--shadow-hover); }
 
 .badge {
   display: inline-block;
@@ -97,3 +136,39 @@ footer.site a { margin: 0 8px; }
   .doc h1 { font-size: 25px; }
   header.site nav a { margin-left: 10px; }
 }
+
+/* System / Dark / Light switch in the footer (theme.js). */
+.theme-switch {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin: 0 0 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.theme-switch button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--soft);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 14px;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.theme-switch button:hover { color: var(--text); }
+.theme-switch button.on { background: var(--accent); color: #2b160a; }
+.theme-switch button:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 2px; }
+
+/* Dark theme: the studio logo has dark lettering, so it sits on a light plate. */
+.hero img.studio, header.site a.brand img {
+  background: var(--logo-plate);
+  border-radius: calc(var(--logo-on) * 18px);
+}
+.hero img.studio { padding: calc(var(--logo-on) * 14px); }
+header.site a.brand img { padding: calc(var(--logo-on) * 3px); border-radius: calc(var(--logo-on) * 10px); }
